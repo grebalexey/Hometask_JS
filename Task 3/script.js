@@ -40,12 +40,12 @@
 // 5. Функция сокращения объекта-дроби.
 
 
-let fraction1 = {};
+fraction1 = {};
 
 fraction1['nominator'] = +prompt('Введите числитель первой дроби','');
 fraction1['denominator'] = +prompt('Введите знаменатель первой дроби','');
 
-let fraction2 = {};
+fraction2 = {};
 
 fraction2['nominator'] = +prompt('Введите числитель второй дроби','');
 fraction2['denominator'] = +prompt('Введите знаменатель второй дроби','');
@@ -53,17 +53,57 @@ fraction2['denominator'] = +prompt('Введите знаменатель вто
 console.log(fraction1);
 console.log(fraction2);
 
+// функция сложения
 function sum(){
-    if (fraction1.denominator == fraction2.denominator){
-        let fractionSum = (fraction1.nominator + fraction2.nominator)/fraction1.denominator;}
-        // else {
-        //    let fractionSum = ((fraction1.nominator * fraction2.denominator) + (fraction2.nominator * fraction1.denominator))/(fraction1.denominator*fraction2.denominator); 
-        // }
+    let {nominator: nominator1, denominator: denominator1} = fraction1;
+    let {nominator: nominator2, denominator: denominator2} = fraction2;
 
-        alert(`Сумма дробей: ${this.fractionSum}`);
+    console.log(nominator1);
+    console.log(denominator1);
+    console.log(nominator2);
+    console.log(denominator2);
+
+    if (denominator1 == denominator2){
+        let fractionSum = (nominator1 + nominator2)/denominator1;
+        alert(`Сумма дробей: ${fractionSum}`)
+    }   else {
+           let fractionSum = ((nominator1 * denominator2) + (nominator2 * denominator1))/(denominator1*denominator2); 
+           alert(`Сумма дробей: ${fractionSum}`);
+        }
+}
+
+
+// функция вычитания
+function subtraction(){
+    if(fraction1.denominator == fraction2.denominator){
+        let fractionSubstraction = (fraction1.nominator - fraction2.nominator)/fraction1.denominator;
+        alert (`Разность дробей равна: ${fractionSubstraction}`);
+    } else {
+        let fractionSubstraction = ((fraction1.nominator * fraction2.denominator) - (fraction2.nominator * fraction1.denominator))/(fraction1.denominator * fraction2.denominator);
+        alert (`Разность дробей равна: ${fractionSubstraction}`);
     }
+}
+
+// функция умножения
+function multiplication(){
+    let fractionMultiplication = (fraction1.nominator * fraction2.nominator)/(fraction1.denominator * fraction2.denominator);
+    alert (`Произведение дробей равно: ${fractionMultiplication}`);
+}
+
+// функция деления
+function division(){
+    let fractionDivision = (fraction1.nominator * fraction2.denominator)/(fraction1.denominator * fraction2.nominator);
+    alert (`Частное дробей равно: ${fractionDivision}`);
+}
+
+// функция сокращения объекта-дроби
+
 
 sum();
+subtraction();
+Multiplication();
+division();
+
 
 
 
