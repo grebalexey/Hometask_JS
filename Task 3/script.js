@@ -97,12 +97,71 @@ function division(){
 }
 
 // функция сокращения объекта-дроби
+function reduction(){
+    let {nominator: nominator1, denominator: denominator1} = fraction1;
+    let {nominator: nominator2, denominator: denominator2} = fraction2;
 
+    let coefficient1 = Math.min(nominator1, denominator1);
+    let coefficient2 = Math.min(nominator2, denominator2);
+
+    if (nominator1 == denominator1){
+        let reduceFraction1 = 1;
+        console.log (reduceFraction1);
+        alert (`Первая сокращенная дробь: ${reduceFraction1}`)
+    } else {
+        
+        if (nominator1 % coefficient1 == 0 && denominator1 % coefficient1 == 0){
+            nominator1 = nominator1/coefficient1;
+            denominator1 = denominator1/coefficient1;
+            let reduceFraction1 = (`${nominator1}/${denominator1}`);
+            console.log (reduceFraction1);
+            alert (`Первая сокращенная дробь: ${reduceFraction1}`)
+        } else {
+            do {
+                if (nominator1 % coefficient1 == 0 && denominator1 % coefficient1 == 0){
+                    nominator1 = nominator1/coefficient1;
+                    denominator1 = denominator1/coefficient1;
+                } else {
+                    coefficient1--;
+                }
+            } while (coefficient1 > 1);
+
+            alert (`Первая сокращенная дробь: ${nominator1}/${denominator1}`);
+        }
+    }
+
+    if (nominator2 == denominator2){
+        let reduceFraction2 = 1;
+        console.log (reduceFraction2);
+        alert (`Вторая сокращенная дробь: ${reduceFraction2}`)
+    } else {
+        
+        if (nominator2 % coefficient2 == 0 && denominator2 % coefficient2 == 0){
+            nominator2 = nominator2/coefficient2;
+            denominator2 = denominator2/coefficient2;
+            let reduceFraction2 = (`${nominator2}/${denominator2}`);
+            console.log (reduceFraction2);
+            alert (`Втооая сокращенная дробь: ${reduceFraction2}`)
+        } else {
+            do {
+                if (nominator2 % coefficient2 == 0 && denominator2 % coefficient2 == 0){
+                    nominator2 = nominator2/coefficient2;
+                    denominator2 = denominator2/coefficient2;
+                } else {
+                    coefficient2--;
+                }
+            } while (coefficient2 > 1);
+
+            alert (`Вторая сокращенная дробь: ${nominator2}/${denominator2}`);
+        }
+    }
+}
 
 sum();
 subtraction();
-Multiplication();
+multiplication();
 division();
+reduction();
 
 
 
